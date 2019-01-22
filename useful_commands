@@ -1,0 +1,5 @@
+git commit -m "test commit"
+git add .
+git status
+cd cs335
+./filename.py
