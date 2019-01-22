@@ -42,11 +42,11 @@ def not_bad(s):
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
   # +++your code here+++
-  al = len(a) // 2
+  a = len(a) // 2
   bl = len(b) // 2
   
   if len(a) % 2 == 1:
-    al = al+1
+    al += 1
   if len(b) % 2 == 1:   
     bl = bl +1
   return a[:al] + b[:bl] + a[al:] + b[bl:]

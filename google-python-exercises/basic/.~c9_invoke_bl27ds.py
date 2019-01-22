@@ -42,7 +42,7 @@ def not_bad(s):
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
   # +++your code here+++
-  al = len(a) // 2
+  if a(count) % 2 == 0 && b()
   bl = len(b) // 2
   
   if len(a) % 2 == 1:
