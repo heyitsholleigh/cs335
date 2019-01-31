@@ -45,6 +45,48 @@ import sys
 # and builds and returns a word/count dict for it.
 # Then print_words() and print_top() can just call the utility function.
 
+
+def count_words(filename):
+  
+  dict = {}
+
+  file = open('alice.txt', 'rU')
+  for string in file:
+    words = string.lower().split()
+    for word in words:
+      word.lower()
+      if word in dict:
+        dict[word] = dict[word] + 1
+      else:  
+        dict[word] = 1
+  
+        
+  file.close()  
+  return dict
+        
+
+def print_words(filename):
+  count = count_words('alice.txt')
+  words = sorted(count.keys())
+  for word in words:
+    print word, count[word]
+
+
+def get_count(tuple):
+  return tuple[1]
+
+    
+def print_top(filename):
+  word_count = count_words('alice.txt')
+  items = sorted(word_count.items(), key=get_count, reverse=True)
+  for item in items[:20]:
+    print item[0], item[1]
+    
+
+
+
+
+
 ###
 
 # This basic command line argument parsing code is provided and
