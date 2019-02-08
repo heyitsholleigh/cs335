@@ -38,6 +38,7 @@ print_words() and print_top().
 """
 
 import sys
+import string
 
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
@@ -51,10 +52,10 @@ def count_words(filename):
   dict = {}
 
   file = open('alice.txt', 'rU')
-  for string in file:
-    words = string.lower().split()
+  for line in file:
+    line = line.translate(None,'\'\\,.?!":;()_@[]{}#$%^&*<>~/`')
+    words = line.strip().lower().split()
     for word in words:
-      word.lower()
       if word in dict:
         dict[word] = dict[word] + 1
       else:  
