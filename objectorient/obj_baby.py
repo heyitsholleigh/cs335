@@ -6,6 +6,16 @@ import sys
 class Babynames :
     def __init__(self, year):
         self.year = year
+        
+    def retrieveNames(self, url) :
+        #create method to get the names
+        #self.names = result
+        dict = {}
+        
+        
+    def printNames(self) :
+        print self.names
+        #iterate through self.names and print list
 
 
 def main():
@@ -25,7 +35,12 @@ def main():
         if text.info().gettype() == 'text/html':
             years = re.findall(r'\d+\sto\s\d+</h2><ul>(.*?)</ul>', text.read())
             for year in years:
-                print year
+                #extract URL from <li> tag and add URL to list
+            #instantiate my objects for getting baby names
+            #iterate through list of URLs from above
+            for yearURL in yearURLs:
+                bn = Babynames(yearURL)
+                bn.printNames()
             
             
             
