@@ -3,32 +3,19 @@ import urllib
 import re
 import sys
 
-d = {}
-
 class Babynames :
     def __init__(self, year):
         self.year = year
-        self.d = d
+        self.names = names
         
-    def retrieveNames(self, tuples) :
+    def retrieveNames(self, url) :
         #create method to get the names
         #self.names = result
-        #d = {}
-        
-        for tuple in tuples:
-          (rank, boy, girl) = tuple
-          if boy not in d:
-            d[boy] = rank
-          if girl not in d:
-            d[girl] = rank
-            
-        
+        names = {}
         
     def printNames(self) :
-        print self.d
+        print self.names
         #iterate through self.names and print list
-        for name in self.d:
-            print(name)
  
 
 def main():
@@ -43,22 +30,20 @@ def main():
       del args[0]   
        
     
-    
-    
     try:
         text = urllib.urlopen(args[0])
         if text.info().gettype() == 'text/html':
             years = re.findall(r'\d+\sto\s\d+</h2><ul>(.*?)</ul>', text.read())
             for year in years:
-              tuples = re.findall(r'<li>(.*?)</li>', text.read())
-              for tuple in tuples:
-                 bn = Babynames(tuple) 
-                 bn.retrieveNames(tuple)
-                 bn.printNames()
-            #extract URL from <li> tag and add URL to list 
+                #extract URL from <li> tag and add URL to list
             #instantiate my objects for getting baby names
             #iterate through list of URLs from above
-    
+               for yearURL in yearURLs:
+                   bn = Babynames(yearURL)
+                   bn.printNames()
+            
+            
+            
     except IOError:
         print "Could not access web address "
         
