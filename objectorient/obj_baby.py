@@ -24,11 +24,11 @@ class Babynames :
             
         
         
-    def printNames(self) :
+    def printNames(self, d) :
         print self.d
         #iterate through self.names and print list
-        for name in self.d:
-            print(name)
+        #for name in self.d:
+         #   print(name)
  
 
 def main():
